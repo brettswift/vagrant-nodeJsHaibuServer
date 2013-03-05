@@ -1,0 +1,17 @@
+# Oracle XE
+**.rpm*
+**.zip
+**.bin
+**.iso
+**.pdf
+
+hpsaDeploy
+
+
+# Vagrant
+.vagrant
+.DS_Store
+
+#graphing
+**.dot
+**.png

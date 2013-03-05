@@ -1,0 +1,28 @@
+{
+  "host": "33.33.33.20",
+  "port": "8080",
+  "public-port": "80",
+  "deploy-dir": "deployment",
+  "port-range": {
+    "min": "9080",
+    "max": "10080"
+  },
+  "mongodb": {
+    "host": "127.0.0.1",
+    "port": "27017",
+    "database": "ishiki"
+  },
+  "logs-size": 100000,
+  "haibu": {
+    "env": "development",
+    "advanced-replies": true,
+    "useraccounts": true,
+    "coffee": true,
+    "directories": {
+      "node-installs": "node-installs",
+      "packages": "packages",
+      "apps": "apps",
+      "tmp": "tmp"
+    }
+  }
+}
