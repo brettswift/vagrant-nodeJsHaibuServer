@@ -5,8 +5,6 @@
 **.iso
 **.pdf
 
-hpsaDeploy
-
 
 # Vagrant
 .vagrant
@@ -15,3 +13,4 @@ hpsaDeploy
 #graphing
 **.dot
 **.png
+

@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
     #   shell.inline = "sudo lsmod | grep vboxsf  && echo 'vbox files are up to date' || '`sudo /etc/init.d/vboxadd setup`'"
     # end
 
-    config.vm.provision :puppet, :module_path => "modules", :options => "--detailed-exitcodes --graph --graphdir ./   --verbose --trace" do |puppet|
+    config.vm.provision :puppet, :module_path => "modules", :options => "--detailed-exitcodes --verbose --trace" do |puppet|
       puppet.manifests_path = "manifests"
       puppet.manifest_file  = "site.pp"
     end
