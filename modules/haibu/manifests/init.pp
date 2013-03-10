@@ -80,37 +80,37 @@ class haibu::nodejs($nodeVer) {
   }
 
   exec { "download node": 
-      command   => "wget http://nodejs.org/dist/v0.8.21/node-v0.8.21.tar.gz",
+      command   => "wget http://nodejs.org/dist/v${nodeVer}/node-v${nodeVer}.tar.gz",
       cwd       => "/tmp/node-install",    
-      creates   => "/tmp/node-install/node-v0.8.21.tar.gz",
+      creates   => "/tmp/node-install/node-v${nodeVer}.tar.gz",
       user      => root,
   }
 
   exec { "extract node":
-      command  =>  "tar -zxvf node-v0.8.21.tar.gz",
+      command  =>  "tar -zxvf node-v${nodeVer}.tar.gz",
       cwd      => "/tmp/node-install",     
-      creates  => "/tmp/node-install/node-v0.8.21",
+      creates  => "/tmp/node-install/node-v${nodeVer}",
       user     => root,
   }
 
   exec { "configure node":
       command  =>  "python configure",
-      cwd      => "/tmp/node-install/node-v0.8.21",     
-      creates  => "/tmp/node-install/node-v0.8.21/config.mk",
+      cwd      => "/tmp/node-install/node-v${nodeVer}",     
+      creates  => "/tmp/node-install/node-v${nodeVer}/config.mk",
       user     => root,
   }
 
   exec { "make node":
       command  =>  "make",
-      cwd      => "/tmp/node-install/node-v0.8.21",     
-      creates  => "/tmp/node-install/node-v0.8.21/node",
+      cwd      => "/tmp/node-install/node-v${nodeVer}",     
+      creates  => "/tmp/node-install/node-v${nodeVer}/node",
       user     => root,
   }
 
   exec { "checkinstall node":
-      command   => 'checkinstall --install=yes --pkgname=nodejs --pkgversion "0.8.21" --default',
-      cwd      => "/tmp/node-install/node-v0.8.21",     
-      unless    => 'which node',
+      command   => "checkinstall --install=yes --pkgname=nodejs --pkgversion ${nodeVer} --default",
+      cwd      => "/tmp/node-install/node-v${nodeVer}",     
+      unless    => "which node",
       user      => root,
   }
 
@@ -253,7 +253,7 @@ class haibu::nodejs($nodeVer) {
     "puppet":
       ensure => present;
   }
-
+ 
   exec { "apt update":
     command   => "apt-get -y update",
     timeout   => 3600,
