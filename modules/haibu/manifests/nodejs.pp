@@ -48,18 +48,18 @@ class haibu::nodejs($nodeVer) {
       user      => root,
   }
 
-  # exec { "haibu-ishiki":
-  #     command   => "npm install haibu-ishiki -g",
-  #     user      => root,
-  # }
+  exec { "haibu-ishiki":
+      command   => "npm install haibu-ishiki -g",
+      user      => root,
+  }
 
   exec { "run haibu": 
       command   => "haibu &",
   }
 
-  # file { "/usr/local/lib/node_modules/haibu-ishiki/config.json":
-  #     source => "puppet:///modules/haibu/ishiki.config.json";
-  # }
+  file { "/usr/local/lib/node_modules/haibu-ishiki/config.json":
+      source => "puppet:///modules/haibu/ishiki.config.json";
+  }
 
   # exec { "run ishiki":
   #     command => "node /usr/local/lib/node_modules/haibu-ishiki/index.js & > /tmp/log/ishiki.log",
@@ -74,9 +74,9 @@ class haibu::nodejs($nodeVer) {
     ->Exec['make node']
     ->Exec['checkinstall node']
     ->Exec['haibu']
-    # ->Exec['haibu-ishiki']
+    ->Exec['haibu-ishiki']
     ->Exec['run haibu']
-    # ->File['/usr/local/lib/node_modules/haibu-ishiki/config.json']
+    ->File['/usr/local/lib/node_modules/haibu-ishiki/config.json']
     # ->Exec['run ishiki']
 
 }
