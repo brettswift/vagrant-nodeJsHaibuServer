@@ -1,8 +1,9 @@
 Vagrant::Config.run do |config|
 
   config.vm.define :haibu do |config|
-    config.vm.box = "CentOS-6.3-x86_64"
-    config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.3-x86_64-v20130101.box"
+    config.vm.box = "Ubuntu_12.10_Quantal_x86_64"
+    # config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.3-x86_64-v20130101.box"
+    config.vm.box_url = "https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box"
     config.vm.host_name = "haibu"  #matches node name in site.pp or nodes/*.pp
     config.vm.network :hostonly, "33.33.33.20", :adapter => 2
     config.ssh.forward_x11 = true
