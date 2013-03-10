@@ -1,8 +1,8 @@
-Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
+Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin/"] }
 
 node haibu {
 	# realize (Accounts::Virtual['vagrant'])
-	include haibu::server
+	include haibu::packages
 	include haibu::mongo
 	include haibu::redis
 

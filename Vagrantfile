@@ -7,12 +7,7 @@ Vagrant::Config.run do |config|
     config.vm.host_name = "haibu"  #matches node name in site.pp or nodes/*.pp
     config.vm.network :hostonly, "33.33.33.20", :adapter => 2
     config.ssh.forward_x11 = true
-
-    #recompile vbox additions to prevent error on re-up.
-    # config.vm.provision :shell do |shell|
-    #   shell.inline = "sudo lsmod | grep vboxsf  && echo 'vbox files are up to date' || '`sudo /etc/init.d/vboxadd setup`'"
-    # end
-
+ 
     # graphs are output on the default vagrant mapped ddrive.
     config.vm.provision :puppet, :module_path => "modules", :options => "--detailed-exitcodes --graph --graphdir /vagrant/graphs --verbose --trace" do |puppet|
       puppet.manifests_path = "manifests"
